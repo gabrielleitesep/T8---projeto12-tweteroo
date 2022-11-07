@@ -15,3 +15,9 @@ app.post('/sign-up', (req, res) => {
     usuarios.push({ username, avatar })
     res.send('OK')
 })
+
+app.post('/tweets', (req, res) => {
+    const { username, tweet } = req.body
+    tweets.push({ username, tweet })
+    res.send('OK')
+})
