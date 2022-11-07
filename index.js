@@ -18,6 +18,11 @@ app.post('/sign-up', (req, res) => {
 
 app.post('/tweets', (req, res) => {
     const { username, tweet } = req.body
-    tweets.push({ username, tweet })
+    tweets.push({ username, tweet})
     res.send('OK')
+})
+
+app.get('/tweets', (req, res) => {
+    const ultimosTweets = tweets.slice(-10)
+    res.send(ultimosTweets)
 })
