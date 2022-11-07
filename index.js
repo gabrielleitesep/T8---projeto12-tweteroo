@@ -23,6 +23,10 @@ app.post('/tweets', (req, res) => {
 })
 
 app.get('/tweets', (req, res) => {
+    tweets.forEach((t) =>{
+        const { avatar } = usuarios.find((u) => u.username === t.username)
+        t.avatar = avatar
+    })
     const ultimosTweets = tweets.slice(-10)
     res.send(ultimosTweets)
 })
